@@ -4,6 +4,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const userController = require('./controllers/User');
+const exerciseController = require('./controllers/Exercise');
+const logController = require('./controllers//Log');
 
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +20,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/api/users', userController.getAllUsers);
 app.post('/api/users', userController.postUser);
+app.post('/api/users/:_id/exercises', exerciseController.postExercise);
+app.get('/api/users/:_id/logs', logController.getLogs);
 
 app.listen(PORT, () => {
   console.log(`your app running at http://localhost:${PORT}`);

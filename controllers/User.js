@@ -23,4 +23,12 @@ module.exports = {
       });
     });
   },
+
+  getAllUsers: (req, res) => {
+    User.find({})
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => res.json({ message: 'Belum ada data' }));
+  },
 };
