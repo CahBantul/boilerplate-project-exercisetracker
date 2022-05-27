@@ -8,7 +8,6 @@ module.exports = {
       new Date(date) == 'Invalid Date' ? new Date() : new Date(date);
 
     const user = await User.findOne({ _id: req.params._id });
-    console.log(user);
 
     if (!user) {
       return res.json({ message: 'user not found' });
