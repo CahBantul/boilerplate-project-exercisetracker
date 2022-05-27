@@ -26,9 +26,8 @@ module.exports = {
       query.date = { $gte: new Date(from), $lte: new Date(to) };
     }
 
-    console.log(limit);
-
     const exercise = await Exercise.find(query)
+      .limit(limit)
       .then((data) => data)
       .catch((err) => err);
 

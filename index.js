@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api/users', userController.getAllUsers);
 app.post('/api/users', userController.postUser);
 app.post('/api/users/:_id/exercises', exerciseController.postExercise);
 app.get('/api/users/:_id/logs', logController.getLogs);
+app.get('/api/users', userController.getAllUsers);
 
 app.listen(PORT, () => {
   console.log(`your app running at http://localhost:${PORT}`);
